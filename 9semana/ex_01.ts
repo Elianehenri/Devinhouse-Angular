@@ -1,7 +1,7 @@
 
 //- exampleLet - sendo uma variável não constante e de escopo local do tipo numérico com a sua idade como valor.
 
-let exampleLet: number = 43;
+let exampleLet: number = 65;
 console.log (exampleLet )
 
 
