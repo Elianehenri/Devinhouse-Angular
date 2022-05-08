@@ -1,0 +1,53 @@
+{  "menus": [
+  { "titulo": "Comida", "imagem": "assets/comidas.jpg", "path": "/comidas" },
+  { "titulo": "Bebida", "imagem": "assets/bebidas.jpg", "path": "/bebidas" }
+],
+
+    "comidas": [
+      {
+        "id": 1,
+        "titulo": "Hamburger",
+        "enderecoImagem": "./assets/hamburger.jpg",
+        "descricao": "Pão de brioche,blend bovino , queijo cheddar, cebola roxa, alface americana e tomate.",
+        "valor": 25.00
+      },
+      {
+        "id": 2,
+        "titulo": "Sanduiche",
+        "enderecoImagem": "./assets/sandwich.jpg",
+        "descricao": "Pão de brioche ,180gr de blend bovino, 1 fatia de queijo cheddar.",
+        "valor": 22.00
+      },
+      {
+        "id": 3,
+        "titulo": "MINIBLAST",
+        "enderecoImagem": "./assets/MINIBLAST.png",
+        "descricao": "Pão de brioche,blend bovino , queijo cheddar, cebola roxa, alface americana e tomate",
+        "valor": 18.00
+      }
+    ],
+    "bebidas": [
+      {
+        "id": 1,
+        "titulo": "Refrigerante",
+        "enderecoImagem": "./assets/refrigerante.jpg",
+        "descricao": " coca-cola, fanta, guarana",
+        "valor": 12.00
+      },
+      {
+        "id": 2,
+        "titulo": "Sucos",
+        "enderecoImagem": "/assets/suco.jpg",
+        "descricao":"Laranja,limao, uva, acerola, abacaxi",
+        "valor": 17.00
+      },
+      {
+        "id": 3,
+        "titulo": "Vinhos",
+        "enderecoImagem": "/assets/vinhos.jpg",
+        "descricao":"vinho tinto suave, vinho branco",
+        "valor": 85.00
+      }
+     
+    ]
+  }
