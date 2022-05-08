@@ -1,4 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { LISTA_COMIDAS_MOCK } from 'src/app/constants/comidas-mocks';
+import { IComida } from 'src/app/models/comida.model';
+ 
 
 @Component({
   selector: 'ngf-comida-lista',
@@ -6,10 +10,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./comida-lista.component.scss']
 })
 export class ComidaListaComponent implements OnInit {
+  listaComida: IComida[] = LISTA_COMIDAS_MOCK;
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
+    this.http
+      .get<IComida[]>('http://localhost:3000/comidas')
+      .subscribe((value: IComida[]) => {
+        this.listaComida = value;
+      });
   }
 
 }

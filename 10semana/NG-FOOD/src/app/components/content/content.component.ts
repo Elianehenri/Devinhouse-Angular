@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { LISTA_MENUS_MOCK } from 'src/app/constants/menus-mocks';
+
+import { Router } from '@angular/router';
+import { IMenu } from 'src/app/models/menu.model';
 
 @Component({
   selector: 'ngf-content',
@@ -7,9 +11,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContentComponent implements OnInit {
 
-  constructor() { }
+  listaMenu: IMenu[] = LISTA_MENUS_MOCK;
+
+  constructor(private route: Router) { }
 
   ngOnInit(): void {
   }
+
+  salvar() {
+    // logica
+  }
+  redirecionar(path: string) {
+    this.route.navigateByUrl(path);
+  }
+  
 
 }
