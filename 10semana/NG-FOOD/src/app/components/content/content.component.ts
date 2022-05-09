@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { LISTA_MENUS_MOCK } from 'src/app/constants/menus-mocks';
-
 import { Router } from '@angular/router';
 import { IMenu } from 'src/app/models/menu.model';
 
@@ -10,7 +9,6 @@ import { IMenu } from 'src/app/models/menu.model';
   styleUrls: ['./content.component.scss']
 })
 export class ContentComponent implements OnInit {
-
   listaMenu: IMenu[] = LISTA_MENUS_MOCK;
 
   constructor(private route: Router) { }
@@ -24,6 +22,6 @@ export class ContentComponent implements OnInit {
   redirecionar(path: string) {
     this.route.navigateByUrl(path);
   }
-  
+
 
 }

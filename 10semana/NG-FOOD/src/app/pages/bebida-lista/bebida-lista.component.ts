@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { LISTA_BEBIDAS_MOCK } from 'src/app/constants/bebidas-mocks';
 import { IBebida } from 'src/app/models/bebida.model';
+import { BebidaService } from 'src/app/services/bebida.service';
+import { PedidoService } from 'src/app/services/pedido.service';
 
 @Component({
   selector: 'ngf-bebida-lista',
@@ -9,16 +9,33 @@ import { IBebida } from 'src/app/models/bebida.model';
   styleUrls: ['./bebida-lista.component.scss']
 })
 export class BebidaListaComponent implements OnInit {
-  listaBebida: IBebida[]= LISTA_BEBIDAS_MOCK;
+  listaBebida: IBebida[]= [];
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private bebidaService: BebidaService,
+    private pedidoService: PedidoService
+    ) { }
 
   ngOnInit(): void {
-    this.http
-      .get<IBebida[]>('http://localhost:3000/bebidas')
-      .subscribe((resultado: IBebida[]) => {
-        this.listaBebida = resultado;
+    console.log('ngOnInit');
+    this.buscarBebidas();
+    }
+
+  buscarBebidas() {
+    this.bebidaService
+      .devolverBebidas()
+      .subscribe((resposta: IBebida[]) => {
+        this.listaBebida = resposta;
       });
+  }
+
+  adicionarBebida(bebida: IBebida) {
+    this.pedidoService.adicionarItemPedido(bebida);
+  }
+
+  adicionarBebidaComQuantidade(itemComQuantidade: any) {
+    this.pedidoService
+      .adicionarItensPedido(itemComQuantidade.item, itemComQuantidade.quantidade);
   }
 
 }

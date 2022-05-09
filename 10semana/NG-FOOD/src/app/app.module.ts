@@ -10,6 +10,8 @@ import { ComidaListaComponent } from './pages/comida-lista/comida-lista.componen
 import { HomeComponent } from './home/home/home.component';
 import { Route,  RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { PedidoListaComponent } from './pages/pedido-lista/pedido-lista.component';
+import { ItemCardapioComponent } from './components/item-cardapio/item-cardapio.component';
 
 const ROUTES: Route[] = [
   {
@@ -23,10 +25,12 @@ const ROUTES: Route[] = [
   {
     path: 'comidas',
     component: ComidaListaComponent
+  },
+  {
+    path: 'pedido',
+    component: PedidoListaComponent
   }
 ]
-
-
 
 @NgModule({
   declarations: [
@@ -36,7 +40,9 @@ const ROUTES: Route[] = [
     ContentComponent,
     BebidaListaComponent,
     ComidaListaComponent,
-    HomeComponent
+    HomeComponent,
+    PedidoListaComponent,
+    ItemCardapioComponent
   ],
   imports: [
     BrowserModule,
