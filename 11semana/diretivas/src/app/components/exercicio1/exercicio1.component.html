@@ -1,0 +1,24 @@
+<h1> Exercicio 01 da Semana 11 - NgClass</h1>
+
+<br>
+<label [ngClass]="{'checked' : check}">
+  <div class="menu-hamb" >
+    <span class="hamburguer" (click)="check = !check"></span>
+  </div>
+</label>
+
+<ul class="ul-mbl">
+    <li><a href='#'>Home</a></li>
+    <li><a href='#'>About</a></li>
+    <li><a href='#'>Work</a></li>
+</ul>
+
+
+
+
+
+<!-- - Com a ajuda de um evento de click na tag <span>
+  mude a variável para o valor contrário ao valor atual. Ex: modeOn= !modeOn.
+  Assim toda fez que clicar o valor da variável será alterado.
+  - Na tag html <label> com o ngClass adicione a classe ‘checked’
+    caso a variável ‘check’ seja true, essa variável deve ser declarada na classe AppComponent. -->
