@@ -2,8 +2,6 @@
 
 <br>
 
-
-
 <div class="container" [ngStyle]="{
     'backgroundColor':modeOn ? 'black' : 'white',
     'color': modeOn ? 'white' : 'black'
@@ -16,6 +14,6 @@
       quibusdam in est vitae ea unde. Possimus, odio aliquam?
     </h3>
   </div>
-  <button class="card card-small" [ngClass]="{ 'modeOn':modeOn, 'modeOut': !modeOn}"
-            (click)="modeOn = !modeOn">Dark mode</button>
+  <button class="card card-small" [ngClass]="{ 'modeOn':modeOn, 'modeOut': !modeOn}" (click)="modeOn = !modeOn">Dark
+    mode</button>
 </div>
