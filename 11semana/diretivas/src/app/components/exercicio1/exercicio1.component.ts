@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class Exercicio1Component implements OnInit {
 
 
- check: boolean  = true;
+ check: boolean  = false;
 
 
   constructor() { }
