@@ -1,0 +1,64 @@
+<div class="container">
+  <h1>Exercicio 06 da Semana 11 - ngModel</h1>
+  <br>
+  <div class="form">
+    <h2 class="text-center">Cadastro</h2>
+    <hr>
+    <label class="input-group mb-3">
+      <span class="input-group-text bg-warning">Usuário:</span>
+      <input [(ngModel)]="usuario"
+      type="text"
+      class="form-control"
+      placeholder="digite seu nome">
+    </label>
+    <label class="input-group mb-3">
+      <span class="input-group-text bg-warning">CPF: </span>
+      <input [(ngModel)]="cpf"
+      type="number"
+      class="form-control"
+      placeholder="CPF">
+    </label>
+    <label class="input-group mb-3">
+      <span class="input-group-text bg-warning">Dia Aniversário: </span>
+      <input [(ngModel)]="diaAniversario"
+      type="number"
+      class="form-control"
+      placeholder="Dia do aniversário">
+    </label>
+    <label class="input-group mb-3">
+      <span class="input-group-text bg-warning">Senha: </span>
+      <input [(ngModel)]="senha"
+      type="password"
+      class="form-control"
+      placeholder="sua password">
+    </label>
+    <button (click)="cadastrar()" type="button" class="btn btn-success">Cadastrar</button>
+  </div>
+  <div *ngIf="click; else erro">
+    <table>
+      <thead>
+        <th>Usuário</th>
+        <th>cpf</th>
+      </thead>
+      <tbody>
+        <tr>
+          <th>{{ usuario }}</th>
+          <th>{{ cpf }}</th>
+        </tr>
+      </tbody>
+      <thead>
+        <th>Dia Aniversário</th>
+        <th>Senha</th>
+      </thead>
+      <tbody>
+        <tr>
+          <th>{{ diaAniversario }}</th>
+          <th>{{ senha }}</th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <ng-template #erro>
+    <p [ngStyle]="{'color':'red'}">Preencha todos os campos</p>
+  </ng-template>
+</div>
