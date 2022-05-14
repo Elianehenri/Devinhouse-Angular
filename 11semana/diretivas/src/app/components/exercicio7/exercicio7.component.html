@@ -1,0 +1,84 @@
+<div class="container">
+  <h1>Exercicio 07 da Semana 11 - ngModel</h1>
+  <br>
+  <form #form="ngForm" (ngSubmit)="cadastrar()" class="form">
+    <h2 class="text-center">Cadastro</h2>
+    <hr>
+    <label class="input-group mb-3">
+      <span class="input-group-text bg-warning">Usuário:</span>
+      <input [(ngModel)]="usuario"
+      type="text"
+      class="form-control"
+      placeholder="digite seu nome">
+    </label>
+    <label class="input-group mb-3">
+      <span class="input-group-text bg-warning">CPF: </span>
+      <input [(ngModel)]="cpf"
+      type="number"
+      class="form-control"
+      name="cpf"
+      placeholder="CPF"
+      required>
+    </label>
+
+    <label class="input-group mb-3">
+      <span class="input-group-text bg-warning">Dia Aniversário: </span>
+      <input [(ngModel)]="diaAniversario"
+      min="1" max="31"
+      type="number"
+      #aniversario="ngModel"
+      name="diaAniversario"
+      class="form-control"
+      placeholder="Dia do aniversário">
+    </label>
+    <div *ngIf="!(aniversario.valid || aniversario.pristine)" class="alert alert-danger">
+     Somente dias de 1 a 31!
+  </div>
+    <label class="input-group mb-3">
+      <span class="input-group-text bg-warning">Senha: </span>
+      <input [(ngModel)]="senha"
+      type="password"
+      name="senha"
+      minlength="6"
+      #password="ngModel"
+      class="form-control"
+      placeholder="sua password"
+      required>
+    </label>
+    <div *ngIf="!(password.valid || password.pristine)" class="alert alert-danger">
+     Escreva no mínimo de 6 caracteres!
+  </div>
+    <button (click)="cadastrar()"
+    type="submit"
+    class="btn btn-success"
+    [disabled]="!form.valid">Cadastrar</button>
+  </form>
+  <div *ngIf="click; else erro">
+    <table>
+      <thead>
+        <th>Usuário</th>
+        <th>cpf</th>
+      </thead>
+      <tbody>
+        <tr>
+          <th>{{ usuario }}</th>
+          <th>{{ cpf }}</th>
+        </tr>
+      </tbody>
+      <thead>
+        <th>Dia Aniversário</th>
+        <th>Senha</th>
+      </thead>
+      <tbody>
+        <tr>
+          <th>{{ diaAniversario }}</th>
+          <th>{{ senha }}</th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <ng-template #erro>
+    <p [ngStyle]="{'color':'red'}">Preencha todos os campos</p>
+  </ng-template>
+</div>
+
