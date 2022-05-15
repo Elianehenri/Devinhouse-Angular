@@ -1,0 +1,52 @@
+<div class="container">
+  <h1>Exercicio 10 da Semana 11 - Revisão geral</h1>
+</div>
+<div class="container">
+  <button *ngIf="list.length == 0" class="btn btn-success" (click)="btnNewTarefa()">New Tarefa</button>
+  <div *ngIf="list.length !==  0">
+      <h4>Não há tarefas cadastrados!</h4>
+  </div>
+  <table *ngIf="list.length != 0">
+      <thead>
+          <th>#</th>
+          <th>Tarefas</th>
+          <th colspan="2"><button class="btn btn-warning" (click)="btnNewTarefa()">New Tarefa</button></th>
+      </thead>
+      <tbody *ngFor="let lists of list; let i = index">
+          <tr>
+              <th>{{ i }}</th>
+              <th>{{ lists.tarefa | titlecase }}</th>
+              <th><button class="btn btn-danger" (click)="remover(i)"> x </button></th>
+              <th><button class="btn btn-primary" (click)="editar(i)"> To Edit </button></th>
+          </tr>
+      </tbody>
+
+  </table>
+  <br>
+  <form *ngIf="newTarefa" class="input-group" #form="ngForm" (ngSubmit)="salvar(); form.reset()" >
+      <input
+      type="text"
+      class="form-control"
+      name="tarefa"
+      placeholder="Digite a tarefa"
+      [(ngModel)]="tarefa">
+      <button
+      class="btn btn-outline-primary"
+      type="submit"
+      >Salvar</button>
+  </form>
+
+  <form *ngIf="edicao" class="input-group" #form="ngForm" (ngSubmit)="salvarEdit(); form.reset()" >
+      <input
+      type="text"
+      class="form-control"
+      name="tarefa"
+      placeholder="Digite a tarefa"
+      [(ngModel)]="tarefa">
+      <button
+      class="btn btn-outline-primary"
+      type="submit"
+      >Salvar</button>
+  </form>
+
+</div>
