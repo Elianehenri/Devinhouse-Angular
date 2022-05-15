@@ -1,0 +1,100 @@
+<div class="container">
+  <h1>Exercicio 09 da Semana 11 - Revisão geral</h1>
+</div>
+<br>
+<br>
+<div class="container">
+  <div>
+    <img
+      src="https://conteudo.imguol.com.br/c/entretenimento/e4/2020/11/18/pets-no-mato-1605715705944_v2_900x506.jpg.webp"
+      alt="">
+  </div>
+  <form class="form" #form="ngForm" (ngSubmit)="cadastrar()">
+    <h2 class="text-center">CADASTRO DO PET</h2>
+    <hr>
+    <label class="input-group mb-3">
+      <span class="input-group-text bg-info">Nome Dono: </span>
+      <input [(ngModel)]="animal.nomeDono" name="dono" type="text" class="form-control"
+        placeholder="Digite o nome do dono" required>
+    </label>
+    <label class="input-group mb-3">
+      <span class="input-group-text bg-info">CPF: </span>
+      <input [(ngModel)]="animal.cpf" name="cpf" type="text"
+        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" class="form-control"
+        placeholder="Digite somente numero do CPF" minlength="11" maxlength="11" #numcpf="ngModel" required>
+    </label>
+    <small *ngIf="!( numcpf.valid || numcpf.pristine )" class="text-danger">O CPF deve conter 11 dígitos - Somente
+      números
+    </small>
+    <label class="input-group mb-3">
+      <span class="input-group-text bg-info">E-mail: </span>
+      <input [(ngModel)]="animal.email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" name="email" type="email"
+        class="form-control" placeholder="E-mail" #endemail="ngModel" required>
+    </label>
+
+    <small *ngIf="!( endemail .valid || endemail .pristine )" class="text-danger">E-mail fora do formato!
+    </small>
+
+    <label class="input-group mb-3">
+      <span class="input-group-text bg-info">Nome do Cachorro: </span>
+      <input [(ngModel)]="animal.nomeCachorro" name="nomeanimal" type="text" class="form-control"
+        placeholder="Nome do cachorro" required>
+    </label>
+    <label class="input-group mb-3">
+      <span class="input-group-text bg-info">Codigo Identificador do Cachorro: </span>
+      <input [(ngModel)]="animal.codCachorro" name="cod.animal" min="1" type="number" class="form-control"
+        placeholder="Código de Identificação" required>
+    </label>
+    <button type="submit" class="btn btn-success" [disabled]="!form.valid">Cadastrar</button>
+  </form>
+</div>
+
+<!-- A ficha de cadastro d Pet depois de cadastrado-->
+<div class="modal" *ngIf="cadastro">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header justify-content-center">
+        <h3 class="modal-title"> Cadastrado Realizado com Sucesso!</h3>
+      </div>
+      <div class="modal-body d-flex justify-content-center">
+
+        <table>
+          <thead>
+            <th>Nome do Dono</th>
+            <th>CPF</th>
+          </thead>
+          <tbody>
+            <tr>
+              <th>{{ animal.nomeDono }}</th>
+              <th>{{ animal.cpf }}</th>
+            </tr>
+          </tbody>
+          <thead>
+            <th>Nome do Cachorro</th>
+            <th>Código Identificador</th>
+          </thead>
+          <tbody>
+            <tr>
+              <th>{{ animal.nomeCachorro }}</th>
+              <th>{{ animal.codCachorro }}</th>
+            </tr>
+          </tbody>
+          <thead>
+            <th colspan="2">E-mail</th>
+          </thead>
+          <tbody>
+            <tr>
+              <th colspan="2">{{ animal.email }}</th>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button"
+        class="btn btn-danger"
+        (click)="cadastro = !cadastro; form.reset()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
