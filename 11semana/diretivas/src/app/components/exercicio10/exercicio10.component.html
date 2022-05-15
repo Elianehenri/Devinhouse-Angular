@@ -2,22 +2,25 @@
   <h1>Exercicio 10 da Semana 11 - Revisão geral</h1>
 </div>
 <div class="container">
-  <button *ngIf="list.length == 0" class="btn btn-success" (click)="btnNewTarefa()">New Tarefa</button>
-  <div *ngIf="list.length !==  0">
-      <h4>Não há tarefas cadastrados!</h4>
+
+  <!-- <button *ngIf="list.length == 0"  (click)="btnNewTarefa()">New Tarefa</button> -->
+  <div >
+    <button class="btn btn-warning" (click)="btnNewTarefa()">New Tarefa</button>
+      <h4 *ngIf="list.length ==  0" >Não há tarefas cadastrados!</h4>
   </div>
   <table *ngIf="list.length != 0">
       <thead>
           <th>#</th>
           <th>Tarefas</th>
-          <th colspan="2"><button class="btn btn-warning" (click)="btnNewTarefa()">New Tarefa</button></th>
+          <th>Excluir</th>
+          <th>Editar</th>
       </thead>
       <tbody *ngFor="let lists of list; let i = index">
           <tr>
               <th>{{ i }}</th>
               <th>{{ lists.tarefa | titlecase }}</th>
               <th><button class="btn btn-danger" (click)="remover(i)"> x </button></th>
-              <th><button class="btn btn-primary" (click)="editar(i)"> To Edit </button></th>
+              <th><button class="btn btn-primary" (click)="editar(i)"> Editar </button></th>
           </tr>
       </tbody>
 
