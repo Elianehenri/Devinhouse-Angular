@@ -1,0 +1,32 @@
+<div class="container">
+  <h1>Exercicio 08 da Semana 11 - ngSwitch, ngSwitchCase e ngSwitchCaseDefault</h1>
+</div>
+<br>
+<div [ngSwitch]="page">
+  <header class="p-3 bg-dark text-white">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a (click)="page = 'home'" class="nav-link px-2 text-white">Home</a></li>
+          <li><a (click)="page = 'produtos'" class="nav-link px-2 text-white">Produtos</a></li>
+          <li><a (click)="page = 'servicos'" class="nav-link px-2 text-white">Serviços</a></li>
+          <li><a (click)="page = 'contato'" class="nav-link px-2 text-white">Contato</a></li>
+          <li><a (click)="page = 'sobre'" class="nav-link px-2 text-white">Sobre</a></li>
+        </ul>
+
+      </div>
+    </div>
+  </header>
+  <div class="container ">
+    <h1 *ngSwitchDefault class="text-danger">Nenhuma Página Selecionada</h1>
+    <h2 *ngSwitchCase="'home'" class="text-dark">Estou na Página Home</h2>
+    <h2 *ngSwitchCase="'produtos'" class="text-success">Estou na Página de Produtos</h2>
+    <h2 *ngSwitchCase="'servicos'" class="text-warning">Estou na Página de Serviços</h2>
+    <h2 *ngSwitchCase="'contato'" class="text-muted">Estou na Página de Contato</h2>
+    <h2 *ngSwitchCase="'sobre'" class="text-info">Estou na Página de Sobre</h2>
+    <p text-primary>Como resultado, no exemplo da imagem em anexo se eu clicar em
+      Home deve ser carregada a mensagem “Estou na página de Home”,<br>
+      caso clique em Produtos carregar a mensagem “Estou na página de Produtos” .</p>
+  </div>
+</div>
